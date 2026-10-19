@@ -287,8 +287,14 @@ section { scroll-margin-top: var(--topo); }
   border: 1px solid var(--cinza-borda);
   border-radius: 14px;
   box-shadow: 0 20px 54px rgba(20, 41, 74, .13);
-  margin: 78px 0 -58px;
   padding: 26px 14px;
+
+  /* O card fica montado na divisória entre o HERO e a seção seguinte.
+     translateY(50%) desce exatamente metade da própria altura: como a base
+     da caixa coincide com o fim do HERO, o centro do card cai em cima da
+     linha, sem depender de margem negativa (que colapsava para fora). */
+  margin: 40px 0 0;
+  transform: translateY(50%);
 }
 .hero-selo {
   display: flex;
@@ -321,8 +327,8 @@ section { scroll-margin-top: var(--topo); }
 }
 .hero-selo span { font-size: 14.5px; color: var(--cinza-texto); line-height: 1.4; }
 
-/* compensa o card sobreposto */
-#linhas { padding-top: 126px; }
+/* compensa a metade do card que invade esta seção (≈57px) */
+#linhas { padding-top: 132px; }
 
 /* ====================================================== LINHAS/FAMÍLIAS = */
 .familias {
@@ -772,7 +778,7 @@ section { scroll-margin-top: var(--topo); }
   }
 
   /* sem sobreposição no empilhado */
-  .hero-selos { grid-template-columns: 1fr; margin: 32px 0 0; padding: 10px 6px; }
+  .hero-selos { grid-template-columns: 1fr; margin: 32px 0 0; padding: 10px 6px; transform: none; }
   .hero-selo { border-right: 0; border-bottom: 1px solid var(--cinza-borda); padding: 16px 18px; }
   .hero-selo:last-child { border-bottom: 0; }
 
