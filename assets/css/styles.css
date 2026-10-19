@@ -706,92 +706,6 @@ section { scroll-margin-top: var(--topo); }
   font-size: 15px;
 }
 
-/* =================================================== FRASE DE AUTORIDADE */
-/* Painel azul com logo, frase e botão; foto à direita cortada numa diagonal
-   "/" com faixa vermelha (dois clip-path paralelos, inclinação de 25 pontos).
-   Tamanhos e margens em vw, como na referência: a composição mantém a mesma
-   proporção em qualquer largura, em vez de encolher em tela larga. */
-.autoridade {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  min-height: clamp(460px, 40vw, 1100px);
-  padding: clamp(56px, 5vw, 110px) 0;
-  color: var(--branco);
-  background: linear-gradient(120deg, var(--navy-escuro) 0%, var(--navy) 60%, #102347 100%);
-}
-.autoridade::before { /* faixas diagonais translúcidas no painel azul */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(120deg, transparent 0 16%, rgba(255, 255, 255, .035) 16% 27%, transparent 27%),
-    linear-gradient(120deg, transparent 0 44%, rgba(255, 255, 255, .025) 44% 52%, transparent 52%),
-    linear-gradient(120deg, transparent 0 60%, rgba(0, 0, 0, .14) 60% 68%, transparent 68%);
-  pointer-events: none;
-}
-
-.autoridade-midia {
-  position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 50%;
-  z-index: 1;
-  background: var(--vermelho);
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
-}
-.autoridade-midia img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 60% center;
-  clip-path: polygon(27% 0, 100% 0, 100% 100%, 2% 100%);
-}
-
-/* conteúdo ancorado à esquerda (≈5,6vw da borda), não num container
-   centralizado — senão, em tela larga, ele flutua perto da diagonal */
-.autoridade-interno {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding-inline: max(20px, 5.6vw);
-}
-/* a diagonal fica entre 50vw (base) e 62,5vw (topo); a frase, em 3,85vw,
-   termina por volta de 48vw contando a margem */
-.autoridade-conteudo { max-width: 47vw; }
-
-.autoridade-logo {
-  display: inline-block;
-  background: var(--branco);
-  border-radius: clamp(5px, .4vw, 10px);
-  padding: clamp(6px, .5vw, 12px) clamp(14px, 1.1vw, 26px);
-  margin-bottom: clamp(22px, 1.9vw, 46px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .22);
-}
-.autoridade-logo img { height: clamp(50px, 4.6vw, 130px); width: auto; }
-
-.autoridade-frase {
-  margin: 0;
-  font-family: var(--fonte-titulo);
-  font-size: clamp(32px, 3.85vw, 110px);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -.03em;
-  color: var(--branco);
-}
-.autoridade-frase em { display: block; font-style: normal; color: var(--vermelho); }
-
-.autoridade .btn {
-  margin-top: clamp(26px, 1.8vw, 48px);
-  padding: clamp(16px, 1.4vw, 36px) clamp(30px, 2.5vw, 60px);
-  font-size: clamp(15px, 1.25vw, 32px);
-  gap: clamp(12px, 1.4vw, 32px);
-}
-.autoridade .btn svg { width: 1.3em; height: 1.3em; fill: currentColor; transition: transform .25s; }
-.autoridade .btn:hover svg { transform: translateX(4px); }
-
 /* ========================================================= DIFERENCIAIS = */
 /* Bloco azul: introdução com "20+" vazado à esquerda; à direita os cinco
    diferenciais em 3 + 2, separados por linhas finas. Arcos vermelhos
@@ -1394,34 +1308,11 @@ section { scroll-margin-top: var(--topo); }
   .diferenciais-linha { display: none; }
   .segmentos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  /* frase de autoridade empilhada: texto, depois a foto em faixa */
-  .autoridade { flex-direction: column; align-items: stretch; min-height: 0; padding: 56px 0 0; }
-  .autoridade-interno { order: 1; }
-  .autoridade-conteudo { max-width: none; }
-  .autoridade-midia {
-    order: 2;
-    position: relative;
-    width: 100%;
-    height: 260px;
-    margin-top: 44px;
-    clip-path: none;
-  }
-  .autoridade-midia img { clip-path: none; object-position: 55% center; }
-  .autoridade-midia::after { /* a diagonal vira uma barra vermelha no topo */
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 6px;
-    background: var(--vermelho);
-  }
-
   .contato-grade { grid-template-columns: 1fr; gap: 36px; }
   .secao { padding: 54px 0; }
 }
 
 @media (max-width: 620px) {
-  .autoridade .btn { width: 100%; }
-  .autoridade-logo { padding: 6px 14px; }
   .catalogo-topo-grade { grid-template-columns: 1fr; }
   .catalogo-texto { border-right: 0; padding-right: 0; }
   .catalogo-total { padding-left: 0; flex-direction: row; align-items: baseline; gap: 10px; }
@@ -1469,7 +1360,6 @@ section { scroll-margin-top: var(--topo); }
 /* seções de cima: cantos inferiores arredondados */
 .hero,
 .catalogo-corpo,
-.autoridade,
 .dif-secao,
 .seg-secao,
 .contato { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
@@ -1481,7 +1371,6 @@ section { scroll-margin-top: var(--topo); }
 .hero       { z-index: 7; }
 .linhas     { z-index: 6; }
 .catalogo   { position: relative; z-index: 5; }
-.autoridade { z-index: 4; }
 .dif-secao  { z-index: 3; }
 .seg-secao  { position: relative; z-index: 2; }
 .contato    { z-index: 1; }
@@ -1489,17 +1378,12 @@ section { scroll-margin-top: var(--topo); }
 
 /* seções de baixo: sobem por trás da anterior e compensam no padding */
 .linhas,
-.autoridade,
 .dif-secao,
 .seg-secao,
 .contato,
 .rodape { margin-top: calc(-1 * var(--raio-secao)); }
 
 #linhas    { padding-top: calc(132px + var(--raio-secao)); }
-.autoridade {
-  padding-top: calc(clamp(56px, 5vw, 110px) + var(--raio-secao));
-  min-height: calc(clamp(460px, 40vw, 1100px) + var(--raio-secao));
-}
 .dif-secao { padding-top: calc(clamp(56px, 4.6vw, 96px) + var(--raio-secao)); }
 .dif-secao::before { top: calc(-60px + var(--raio-secao)); }
 .dif-secao::after  { top: calc(150px + var(--raio-secao)); }
@@ -1515,5 +1399,4 @@ section { scroll-margin-top: var(--topo); }
   /* HERO empilhado: a foto fica embaixo, na largura toda */
   .hero-midia { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
   #linhas     { padding-top: calc(54px + var(--raio-secao)); }
-  .autoridade { padding-top: calc(56px + var(--raio-secao)); min-height: 0; }
 }
