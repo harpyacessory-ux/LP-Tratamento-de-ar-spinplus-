@@ -208,7 +208,12 @@ section { scroll-margin-top: var(--topo); }
   padding: 72px 0 0;
 }
 .hero .container { position: relative; z-index: 2; }
-.hero-conteudo { max-width: 620px; }
+
+/* A coluna de texto é limitada em vw porque a foto também é medida em vw.
+   Com a foto em 50%, a aresta da diagonal na altura do H1 fica por volta de
+   53,6vw — o limite de 40vw abaixo garante folga em qualquer largura, e os
+   600px comportam "com padrão industrial" em uma linha só. */
+.hero-conteudo { width: min(600px, 40vw); max-width: 100%; }
 
 /* ---- foto + diagonal ---- */
 /* A faixa vermelha nasce da diferença entre os dois clip-path: ambos descem
@@ -216,7 +221,7 @@ section { scroll-margin-top: var(--topo); }
 .hero-midia {
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 56%;
+  width: 50%;
   z-index: 1;
   background: var(--vermelho);
   clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
@@ -253,19 +258,21 @@ section { scroll-margin-top: var(--topo); }
 /* ---- título ---- */
 .hero h1 {
   color: var(--navy);
-  font-size: clamp(34px, 5vw, 60px);
+  font-size: clamp(32px, 3.5vw, 52px);
   font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -1.8px;
+  line-height: 1.05;
+  letter-spacing: -1.6px;
 }
 .hero h1 em { display: block; font-style: normal; color: var(--vermelho); }
 
 .hero-texto {
   margin: 24px 0 0;
-  font-size: 17.5px;
+  font-size: 17px;
   line-height: 1.68;
   color: var(--cinza-texto);
-  max-width: 545px;
+  /* o parágrafo fica mais abaixo, onde a diagonal já avançou para a
+     esquerda — 90% da coluna preserva a folga nessa altura */
+  max-width: 90%;
 }
 
 .hero-acoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
@@ -698,10 +705,10 @@ section { scroll-margin-top: var(--topo); }
 
 /* ============================================================ RESPONSIVO = */
 @media (max-width: 1240px) {
-  /* a foto recua para o título não encostar na diagonal */
-  .hero-midia { width: 48%; }
-  .hero-conteudo { max-width: 52%; }
-  .hero h1 { font-size: clamp(30px, 4.2vw, 46px); letter-spacing: -1.2px; }
+  /* a coluna de texto encolhe para o título não encostar na diagonal */
+  .hero-conteudo { width: min(500px, 44vw); }
+  .hero h1 { font-size: clamp(29px, 3.6vw, 42px); letter-spacing: -1.1px; }
+  .hero-texto { font-size: 16px; }
   .hero-selo { padding: 4px 18px; gap: 13px; }
   .hero-selo strong { font-size: 15.5px; }
   .hero-selo span { font-size: 13.5px; }
@@ -746,7 +753,7 @@ section { scroll-margin-top: var(--topo); }
   .hero { padding: 48px 0 0; display: flex; flex-direction: column; }
   .hero .container { order: 1; }
   .hero-midia { order: 2; }
-  .hero-conteudo { max-width: 100%; }
+  .hero-conteudo { width: 100%; max-width: 100%; } /* anula o limite em vw */
 
   .hero-midia {
     position: relative;
