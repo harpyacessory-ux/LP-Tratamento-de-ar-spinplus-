@@ -85,6 +85,18 @@ branco; `mix-blend-mode: multiply` faz esse branco sumir sobre o painel claro.
 Este card **substituiu** a réplica do template de loop do site (imagem de 240 px, corpo
 `#F5F5F5`, botão pílula sobreposto), por direção visual do cliente.
 
+### Divisórias arredondadas
+
+Onde a cor muda entre seções, a de cima termina com os cantos inferiores
+arredondados (`--raio-secao`, de 28 a 56 px) e a de baixo sobe por trás dela na
+altura do raio, compensando no `padding-top`. Assim o canto revela a cor da seção
+seguinte, e não uma fresta branca. O `z-index` desce ao longo da página para cada
+seção ficar por cima da próxima. As regras estão num bloco único no fim do
+`styles.css`, depois dos breakpoints, para valerem também no celular.
+
+Entre duas seções azuis (Linhas → Catálogo) a curva não apareceria, então ali a
+divisão continua reta.
+
 ## Responsivo
 
 Três breakpoints: 1100 px, 900 px (menu vira hambúrguer, vitrine cai para 2 colunas,

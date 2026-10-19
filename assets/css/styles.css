@@ -1182,7 +1182,6 @@ section { scroll-margin-top: var(--topo); }
 /* =============================================================== RODAPÉ = */
 .rodape {
   background: linear-gradient(120deg, var(--navy-escuro) 0%, var(--navy) 100%);
-  border-top: 3px solid var(--vermelho);
   color: rgba(255, 255, 255, .82);
   padding: clamp(40px, 3.2vw, 64px) 0 0;
   font-size: clamp(14px, .98vw, 17px);
@@ -1457,4 +1456,64 @@ section { scroll-margin-top: var(--topo); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .revelar { opacity: 1; transform: none; }
+}
+
+/* ================================================ DIVISÓRIAS ARREDONDADAS = */
+/* Onde a cor muda entre seções, a de cima termina com os cantos inferiores
+   arredondados e a de baixo sobe por trás dela na altura do raio: o canto
+   revela a cor da seção seguinte, sem fresta branca. O z-index desce ao longo
+   da página para cada seção ficar por cima da próxima. Este bloco fica no fim
+   do arquivo para valer também sobre os breakpoints. */
+:root { --raio-secao: clamp(28px, 2.8vw, 56px); }
+
+/* seções de cima: cantos inferiores arredondados */
+.hero,
+.catalogo-corpo,
+.autoridade,
+.dif-secao,
+.seg-secao,
+.contato { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
+
+/* a foto do HERO encosta no canto direito: recorta junto */
+.hero-midia { overflow: hidden; border-bottom-right-radius: var(--raio-secao); }
+
+/* ordem de empilhamento: cada seção por cima da seguinte */
+.hero       { z-index: 7; }
+.linhas     { z-index: 6; }
+.catalogo   { position: relative; z-index: 5; }
+.autoridade { z-index: 4; }
+.dif-secao  { z-index: 3; }
+.seg-secao  { position: relative; z-index: 2; }
+.contato    { z-index: 1; }
+.rodape     { position: relative; z-index: 0; }
+
+/* seções de baixo: sobem por trás da anterior e compensam no padding */
+.linhas,
+.autoridade,
+.dif-secao,
+.seg-secao,
+.contato,
+.rodape { margin-top: calc(-1 * var(--raio-secao)); }
+
+#linhas    { padding-top: calc(132px + var(--raio-secao)); }
+.autoridade {
+  padding-top: calc(clamp(56px, 5vw, 110px) + var(--raio-secao));
+  min-height: calc(clamp(460px, 40vw, 1100px) + var(--raio-secao));
+}
+.dif-secao { padding-top: calc(clamp(56px, 4.6vw, 96px) + var(--raio-secao)); }
+.dif-secao::before { top: calc(-60px + var(--raio-secao)); }
+.dif-secao::after  { top: calc(150px + var(--raio-secao)); }
+.seg-secao { padding-top: calc(clamp(48px, 3.6vw, 80px) + var(--raio-secao)); }
+.contato   { padding-top: calc(clamp(48px, 4vw, 84px) + var(--raio-secao)); }
+.rodape    { padding-top: calc(clamp(40px, 3.2vw, 64px) + var(--raio-secao)); }
+
+/* a faixa vermelha que ficava no topo do rodapé estaria escondida atrás do
+   contato: ela passa para a borda curva do contato */
+.contato { border-bottom: 3px solid var(--vermelho); }
+
+@media (max-width: 900px) {
+  /* HERO empilhado: a foto fica embaixo, na largura toda */
+  .hero-midia { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
+  #linhas     { padding-top: calc(54px + var(--raio-secao)); }
+  .autoridade { padding-top: calc(56px + var(--raio-secao)); min-height: 0; }
 }
