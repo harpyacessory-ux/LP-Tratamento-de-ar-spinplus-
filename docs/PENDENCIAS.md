@@ -133,8 +133,8 @@ com padding ameniza, mas o recorte padronizado continua pendente.
 `#221E1E` (preto quente) — o azul **não existe** no CSS global do Elementor.
 
 **Como está no código.** O azul foi aplicado em títulos, topbar, seção de contato e
-rodapé. O `#221E1E` foi mantido apenas no título do card de produto, para o card
-continuar idêntico ao template de loop do site.
+rodapé, e desde o redesenho do catálogo também no card de produto. O `#221E1E` ficou
+restrito ao hover do botão vermelho, ao menu mobile, aos nomes dos segmentos e ao formulário.
 
 **Risco.** Se esta LP for publicada no mesmo domínio do site atual, a LP e o resto do
 site terão cores escuras diferentes. **Confirmar** se o azul é uma mudança de identidade

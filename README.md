@@ -31,7 +31,7 @@ docs/
 | 1 | Topbar + Header | telefone, e-mail, cobertura RJ, navegação, CTA |
 | 2 | HERO | H1 na expressão `tratamento de ar comprimido`, selo Ingersoll Rand, 3 selos de confiança |
 | 3 | Linhas de produto | fundo azul-marinho em largura ampliada (até 1720px): introdução à esquerda e grade 2×2 de cards horizontais — foto sobre painel claro, chip, descrição, 3 características |
-| 4 | Vitrine | 22 equipamentos com filtro por família |
+| 4 | Catálogo | faixa azul-marinho com o total de equipamentos; barra lateral de filtros fixa ao rolar e grade de 22 cards em 3 colunas |
 | 5 | Frase de autoridade | "Ar comprimido para sua produtividade" |
 | 6 | Diferenciais | 5 itens |
 | 7 | Segmentos | 8 setores atendidos |
@@ -53,7 +53,7 @@ site — foi introduzido na direção visual aprovada pelo cliente e substitui o
 | `--navy` | `#14294A` | **direção do cliente** | títulos, topbar, seção de contato |
 | `--navy-escuro` | `#0F1F39` | derivado | rodapé |
 | `--cinza-claro` | `#EEF2F5` | derivado | painel claro do HERO |
-| `--preto` | `#221E1E` | site | mantido só no título do card de produto |
+| `--preto` | `#221E1E` | site | hover do botão vermelho, menu mobile, nomes dos segmentos e formulário |
 | `--cinza-card` | `#F5F5F5` | site | corpo do card e seções alternadas |
 | `--cinza-borda` | `#E7E7E7` | site | bordas |
 
@@ -72,11 +72,18 @@ sair da primeira dobra.
 
 Fontes: **DM Sans** (títulos, botões, cards) e **Roboto** (texto), ambas via Google Fonts.
 
-O card de produto replica o template de loop do site: imagem de 240 px com borda
-`#E7E7E7` e raio 5 px no topo, corpo `#F5F5F5`, título DM Sans 17/22 px peso 600 com
-`letter-spacing: -0.5px`, e botão pílula vermelho de 80 % de largura sobreposto em
-−21 px, com o ícone à direita e hover preto. A grade é 4 colunas no desktop e 2 no
-tablet/mobile, com os mesmos gaps de 15 px e 10 px.
+### Catálogo
+
+Faixa azul-marinho no topo com rótulo, título, texto e o total de equipamentos em
+destaque. Abaixo, uma barra lateral de filtros que acompanha a rolagem
+(`position: sticky`) e a grade de cards em 3 colunas.
+
+Cada card tem a foto sobre um painel cinza-azulado, a família em caixa-alta, o nome do
+equipamento e o link "Leia mais →" separado por uma divisória. As fotos têm fundo
+branco; `mix-blend-mode: multiply` faz esse branco sumir sobre o painel claro.
+
+Este card **substituiu** a réplica do template de loop do site (imagem de 240 px, corpo
+`#F5F5F5`, botão pílula sobreposto), por direção visual do cliente.
 
 ## Responsivo
 

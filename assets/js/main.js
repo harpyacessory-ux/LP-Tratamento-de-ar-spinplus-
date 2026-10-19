@@ -51,7 +51,9 @@
     if (vazio) vazio.hidden = visiveis > 0;
 
     botoes.forEach(function (b) {
-      b.classList.toggle('is-ativo', b.dataset.filtro === familia);
+      var ativo = b.dataset.filtro === familia;
+      b.classList.toggle('is-ativo', ativo);
+      b.setAttribute('aria-pressed', String(ativo));
     });
   }
 

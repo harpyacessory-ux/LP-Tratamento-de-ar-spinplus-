@@ -30,6 +30,12 @@
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></symbol>
   <symbol id="i-seta" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z"/></symbol>
+  <!-- ícones de traço da barra de filtros do catálogo -->
+  <symbol id="i-f-todos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></symbol>
+  <symbol id="i-f-floco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v19M3.8 7.25l16.4 9.5M20.2 7.25 3.8 16.75M9.6 4.2 12 6.3l2.4-2.1M9.6 19.8 12 17.7l2.4 2.1M3.9 10.1l3.1.6-1 3M20.1 13.9l-3.1-.6 1-3M3.9 13.9l3.1-.6-1-3M20.1 10.1l-3.1.6 1 3"/></symbol>
+  <symbol id="i-f-ondas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9.5c1.5-1.7 3-1.7 4.5 0s3 1.7 4.5 0 3-1.7 4.5 0 3 1.7 4.5 0M3 15.5c1.5-1.7 3-1.7 4.5 0s3 1.7 4.5 0 3-1.7 4.5 0 3 1.7 4.5 0"/></symbol>
+  <symbol id="i-f-funil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 4.5h17l-6.5 8.2v5.8l-4 2v-7.8z"/></symbol>
+  <symbol id="i-f-gota" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.2s-6.2 6.7-6.2 11.1a6.2 6.2 0 0 0 12.4 0C18.2 9.9 12 3.2 12 3.2z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
   <symbol id="i-relogio" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6-4.2 2.4-1-1.7L11 11.4V6h2z"/></symbol>
   <symbol id="i-selo" viewBox="0 0 24 24"><path d="m12 1 3 2.6 4-.3.6 4L23 10l-2.4 3.4.6 4-4-.3L12 23l-3.2-2.9-4 .3.6-4L3 13.4 5.4 10l-.6-4 4 .3zm-1.4 14.5 6-6-1.4-1.4-4.6 4.6-2.2-2.2-1.4 1.4z"/></symbol>
@@ -212,164 +218,225 @@
 </section>
 
 <!-- ============================================================= VITRINE -->
-<section class="secao" id="produtos">
-  <div class="container">
-    <div class="secao-cabecalho revelar">
-      <span class="secao-chip">Catálogo</span>
-      <h2 class="secao-titulo">Equipamentos de <em>tratamento de ar comprimido</em></h2>
-      <p class="secao-texto">
+<section id="produtos" class="catalogo">
+
+  <div class="catalogo-topo">
+    <div class="container container--catalogo catalogo-topo-grade">
+      <div class="catalogo-titulo">
+        <span class="catalogo-rotulo">Catálogo de equipamentos</span>
+        <h2>Equipamentos de <em>tratamento de ar</em> comprimido</h2>
+      </div>
+      <p class="catalogo-texto">
         22 equipamentos Ingersoll Rand disponíveis pela Spinplus. Filtre pela família
         e peça o dimensionamento do modelo que atende à sua vazão.
       </p>
+      <div class="catalogo-total"><strong>22</strong><span>equipamentos</span></div>
     </div>
+  </div>
 
-    <div class="filtros revelar" role="group" aria-label="Filtrar equipamentos por família">
-      <button class="filtro is-ativo" data-filtro="todos">Todos <span aria-hidden="true">(22)</span></button>
-      <button class="filtro" data-filtro="refrigeracao">Refrigeração <span aria-hidden="true">(5)</span></button>
-      <button class="filtro" data-filtro="adsorcao">Adsorção <span aria-hidden="true">(11)</span></button>
-      <button class="filtro" data-filtro="filtros">Filtros <span aria-hidden="true">(2)</span></button>
-      <button class="filtro" data-filtro="drenos">Drenos <span aria-hidden="true">(4)</span></button>
-    </div>
+  <div class="catalogo-corpo">
+    <div class="container container--catalogo catalogo-grade">
 
-    <div class="vitrine" id="vitrine">
+      <aside class="catalogo-filtros">
+        <h3>Filtrar por família</h3>
+        <div class="filtros" role="group" aria-label="Filtrar equipamentos por família">
+          <button class="filtro is-ativo" data-filtro="todos" aria-pressed="true"><svg aria-hidden="true"><use href="#i-f-todos"></use></svg>Todos<span class="filtro-total">22</span></button>
+          <button class="filtro" data-filtro="refrigeracao" aria-pressed="false"><svg aria-hidden="true"><use href="#i-f-floco"></use></svg>Refrigeração<span class="filtro-total">5</span></button>
+          <button class="filtro" data-filtro="adsorcao" aria-pressed="false"><svg aria-hidden="true"><use href="#i-f-ondas"></use></svg>Adsorção<span class="filtro-total">11</span></button>
+          <button class="filtro" data-filtro="filtros" aria-pressed="false"><svg aria-hidden="true"><use href="#i-f-funil"></use></svg>Filtros<span class="filtro-total">2</span></button>
+          <button class="filtro" data-filtro="drenos" aria-pressed="false"><svg aria-hidden="true"><use href="#i-f-gota"></use></svg>Drenos<span class="filtro-total">4</span></button>
+        </div>
+      </aside>
 
-      <!-- ---------------------------------------- Secador por Refrigeração -->
-      <article class="produto revelar" data-familia="refrigeracao">
-        <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-10-150.png" alt="Secador por Refrigeração 10-150 cfm" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Refrigeração 10-150 cfm</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+      <div class="vitrine" id="vitrine">
 
-      <article class="produto revelar" data-familia="refrigeracao">
-        <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-3600-24000.jpg" alt="Secadores por Refrigeração 3.600 a 24.000 CFM" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores por Refrigeração 3.600 a 24.000 CFM</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+        <!-- Refrigeração -->
+        <article class="produto revelar" data-familia="refrigeracao">
+          <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-10-150.png" alt="Secador por Refrigeração 10–150 cfm" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Refrigeração</span>
+            <h3>Secador por Refrigeração 10–150 cfm</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="refrigeracao">
+          <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-3600-24000.jpg" alt="Secadores por Refrigeração 3.600 a 24.000 CFM" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Refrigeração</span>
+            <h3>Secadores por Refrigeração 3.600 a 24.000 CFM</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="refrigeracao">
+          <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-nirvana.png" alt="Secadores por Refrigeração Nirvana" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Refrigeração</span>
+            <h3>Secadores por Refrigeração Nirvana</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="refrigeracao">
+          <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-sem-ciclo.png" alt="Secadores por Refrigeração sem ciclo" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Refrigeração</span>
+            <h3>Secadores por Refrigeração sem ciclo</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="refrigeracao">
+          <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-serie-da.png" alt="Secadores por Refrigeração Série DA" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Refrigeração</span>
+            <h3>Secadores por Refrigeração Série DA</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
 
-      <article class="produto revelar" data-familia="refrigeracao">
-        <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-nirvana.png" alt="Secadores por Refrigeração Nirvana" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores por Refrigeração Nirvana</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+        <!-- Adsorção -->
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-sem-aquecimento.png" alt="Secador Adsorção Sem Aquecimento" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador Adsorção Sem Aquecimento</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-1088.png" alt="Secador por Adsorção (HOC) 1.088/23.703 m³/h" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção (HOC) 1.088/23.703 m³/h</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-1191.png" alt="Secador por Adsorção (HOC) 1.191/24.119 m³/h" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção (HOC) 1.191/24.119 m³/h</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-420.png" alt="Secadores Adsorção HOC 420/3.680 m³/h" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secadores Adsorção HOC 420/3.680 m³/h</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-42-226.png" alt="Secador por Adsorção 4,2 a 226 m³/min" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção 4,2 a 226 m³/min</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-ventilador.png" alt="Secador por Adsorção com ventilador 4,2 a 226 m³/min" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção com ventilador 4,2 a 226 m³/min</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-d-ila.png" alt="Secador por Adsorção D-ILA" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção D-ILA</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hl.jpg" alt="Secador por Adsorção HL" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção HL</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-modular.png" alt="Secador por Adsorção Modular" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção Modular</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-ponto-de-uso.png" alt="Secador por Adsorção Ponto de Uso" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secador por Adsorção Ponto de Uso</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="adsorcao">
+          <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hla.png" alt="Secadores por Adsorção HLA" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Adsorção</span>
+            <h3>Secadores por Adsorção HLA</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
 
-      <article class="produto revelar" data-familia="refrigeracao">
-        <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-sem-ciclo.png" alt="Secadores por Refrigeração sem ciclo" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores por Refrigeração sem ciclo</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+        <!-- Filtro coalescente -->
+        <article class="produto revelar" data-familia="filtros">
+          <div class="produto-figura"><img src="assets/img/produtos/filtro-aco-carbono.png" alt="Filtros Coalescente Aço Carbono" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Filtro coalescente</span>
+            <h3>Filtros Coalescente Aço Carbono</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="filtros">
+          <div class="produto-figura"><img src="assets/img/produtos/filtro-serie-f.png" alt="Filtros Coalescente Série F" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Filtro coalescente</span>
+            <h3>Filtros Coalescente Série F</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
 
-      <article class="produto revelar" data-familia="refrigeracao">
-        <div class="produto-figura"><img src="assets/img/produtos/refrigeracao-serie-da.png" alt="Secadores por Refrigeração Série DA" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores por Refrigeração Série DA</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+        <!-- Dreno -->
+        <article class="produto revelar" data-familia="drenos">
+          <div class="produto-figura"><img src="assets/img/produtos/dreno-liquidator.png" alt="Dreno sem perdas Liquidator" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Dreno</span>
+            <h3>Dreno sem perdas Liquidator</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="drenos">
+          <div class="produto-figura"><img src="assets/img/produtos/dreno-eletronico.png" alt="Drenos eletrônicos sem perda" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Dreno</span>
+            <h3>Drenos eletrônicos sem perda</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="drenos">
+          <div class="produto-figura"><img src="assets/img/produtos/dreno-pnld-ii.png" alt="Drenos sem perda (PNLD II)" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Dreno</span>
+            <h3>Drenos sem perda (PNLD II)</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
+        <article class="produto revelar" data-familia="drenos">
+          <div class="produto-figura"><img src="assets/img/produtos/valvula-dreno.jpg" alt="Válvulas eletrônicas de dreno" loading="lazy"></div>
+          <div class="produto-corpo">
+            <span class="produto-familia">Dreno</span>
+            <h3>Válvulas eletrônicas de dreno</h3>
+            <a class="produto-link" href="#contato">Leia mais <svg><use href="#i-arrow"></use></svg></a>
+          </div>
+        </article>
 
-      <!-- -------------------------------------------- Secador por Adsorção -->
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-sem-aquecimento.png" alt="Secador Adsorção Sem Aquecimento" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador Adsorção Sem Aquecimento</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
+        <p class="vitrine-vazia" id="vitrine-vazia" hidden>Nenhum equipamento nesta família.</p>
+      </div>
 
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-1088.png" alt="Secador por Adsorção HOC 1.088/23.703 m³/h" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção (HOC) 1.088/23.703 m³/h</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-1191.png" alt="Secador por Adsorção HOC 1.191/24.119 m³/h" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção (HOC) 1.191/24.119 m³/h</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hoc-420.png" alt="Secadores Adsorção HOC 420/3.680 m³/h" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores Adsorção HOC 420/3.680 m³/h</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-42-226.png" alt="Secador por Adsorção 4,2 a 226 m³/min" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção 4,2 a 226 m³/min</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-ventilador.png" alt="Secador por Adsorção com ventilador 4,2 a 226 m³/min" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção com ventilador 4,2 a 226 m³/min</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-d-ila.png" alt="Secador por Adsorção D-ILA" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção D-ILA</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hl.jpg" alt="Secador por Adsorção HL" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção HL</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-modular.png" alt="Secador por Adsorção Modular" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção Modular</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-ponto-de-uso.png" alt="Secador por Adsorção Ponto de Uso" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secador por Adsorção Ponto de Uso</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="adsorcao">
-        <div class="produto-figura"><img src="assets/img/produtos/adsorcao-hla.png" alt="Secadores por Adsorção HLA" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Secadores por Adsorção HLA</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <!-- ------------------------------------------- Filtros Coalescentes -->
-      <article class="produto revelar" data-familia="filtros">
-        <div class="produto-figura"><img src="assets/img/produtos/filtro-aco-carbono.png" alt="Filtros Coalescente Aço Carbono" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Filtros Coalescente Aço Carbono</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="filtros">
-        <div class="produto-figura"><img src="assets/img/produtos/filtro-serie-f.png" alt="Filtros Coalescente Série F" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Filtros Coalescente Série F</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <!-- ------------------------------------------------------- Drenos -->
-      <article class="produto revelar" data-familia="drenos">
-        <div class="produto-figura"><img src="assets/img/produtos/dreno-liquidator.png" alt="Dreno sem perdas Liquidator" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Dreno sem perdas Liquidator</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="drenos">
-        <div class="produto-figura"><img src="assets/img/produtos/dreno-eletronico.png" alt="Drenos eletrônicos sem perda" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Drenos eletrônicos sem perda</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="drenos">
-        <div class="produto-figura"><img src="assets/img/produtos/dreno-pnld-ii.png" alt="Drenos sem perda PNLD II" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Drenos sem perda (PNLD II)</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <article class="produto revelar" data-familia="drenos">
-        <div class="produto-figura"><img src="assets/img/produtos/valvula-dreno.jpg" alt="Válvulas eletrônicas de dreno" loading="lazy"></div>
-        <div class="produto-corpo"><h3>Válvulas eletrônicas de dreno</h3></div>
-        <a class="produto-botao" href="#contato">Leia mais <svg><use href="#i-seta"></use></svg></a>
-      </article>
-
-      <p class="vitrine-vazia" id="vitrine-vazia" hidden>Nenhum equipamento nesta família.</p>
     </div>
   </div>
 </section>
