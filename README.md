@@ -29,7 +29,7 @@ docs/
 | # | Seção | Conteúdo |
 |---|---|---|
 | 1 | Topbar + Header | telefone, e-mail, cobertura RJ, navegação, CTA |
-| 2 | HERO | H1 na expressão `tratamento de ar comprimido`, selo Ingersoll Rand, 3 selos de confiança |
+| 2 | HERO | foto da sala de compressores no fundo, H1 na expressão `tratamento de ar comprimido`, selo Ingersoll Rand, formulário translúcido à direita e 3 selos de confiança |
 | 3 | Linhas de produto | fundo azul-marinho em largura ampliada (até 1720px): introdução à esquerda e grade 2×2 de cards horizontais — foto sobre painel claro, chip, descrição, 3 características |
 | 4 | Catálogo | faixa azul-marinho com o total de equipamentos; barra lateral de filtros fixa ao rolar e grade de 22 cards em 3 colunas |
 | 5 | Diferenciais | bloco azul com arcos vermelhos decorativos: título, "20+ anos de experiência" vazado e 5 diferenciais em 3 + 2 com ícones de traço e linhas divisórias; fecha com faixa vermelha |
@@ -58,16 +58,17 @@ site — foi introduzido na direção visual aprovada pelo cliente e substitui o
 
 ### HERO
 
-Layout dividido: painel claro à esquerda com o H1 em azul-marinho e a segunda linha
-em vermelho, foto à direita cortada na diagonal. A faixa vermelha da diagonal nasce da
-diferença entre dois `clip-path` paralelos aplicados ao contêiner e à imagem — ambos
-descem 13 pontos percentuais da esquerda, o que mantém as duas arestas exatamente
-paralelas sem `transform: skew`.
+A foto da sala de compressores ocupa o fundo todo. Um gradiente claro cobre a metade
+esquerda, onde a própria foto já vem esmaecida, para o texto ficar legível. À esquerda
+ficam o selo Ingersoll Rand, o H1 em azul-marinho com a segunda linha em vermelho, o
+texto e os dois botões. À direita fica o formulário "Solicite um orçamento", em card
+translúcido (`backdrop-filter: blur`), com os campos Nome, Empresa, E-mail e WhatsApp.
+Os campos só mostram placeholder, como no modelo, e têm rótulos `.sr-only` para
+leitores de tela.
 
-O card branco de selos fica sobreposto ao rodapé da seção (`margin-bottom: -58px`,
-compensado pelo `padding-top` da seção seguinte). Abaixo de 900 px o HERO vira coluna
-única e o `order` do flex coloca a foto depois do texto e dos selos, para o título não
-sair da primeira dobra.
+O card branco de selos fica montado na divisória com a seção seguinte:
+`transform: translateY(50%)` desce metade da altura dele sobre o fim do HERO. Abaixo de
+900 px o HERO vira coluna única: texto, formulário, selos e, por último, a foto em faixa.
 
 Fontes: **DM Sans** (títulos, botões, cards) e **Roboto** (texto), ambas via Google Fonts.
 

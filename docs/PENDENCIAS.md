@@ -46,11 +46,13 @@ fixo via `tel:`. O ícone `#i-whats` já está no sprite SVG, pronto para uso.
 **Situação.** O padrão do projeto proíbe formulário HTML próprio: a captação deve usar o
 shortcode do plugin.
 
-**Como está no código.** O `<form id="form-orcamento">` em `index.html` é marcação visual
-de referência; o `main.js` bloqueia o envio e exibe um aviso.
+**Como está no código.** São dois formulários de marcação visual em `index.html`: o do
+HERO ("Solicite um orçamento") e o do Contato (`id="form-orcamento"`). Os dois têm a
+classe `js-form-demo`; o `main.js` bloqueia o envio e exibe um aviso.
 
-**Ao publicar:** substituir o `<form>` inteiro pelo shortcode e remover o bloco
-`form.addEventListener('submit', …)` do `main.js`. O shortcode ainda **não foi informado**.
+**Ao publicar:** substituir cada `<form>` pelo shortcode e remover o bloco
+`.js-form-demo` do `main.js`. O shortcode ainda **não foi informado**. Confirmar também se
+o plugin aceita o campo WhatsApp do formulário do HERO.
 
 ---
 
@@ -116,8 +118,8 @@ A versão completa do padrão pede descrição setorial, 3 processos e foto por 
 |---|---|
 | Logo Spinplus | baixado do site (`logo-spinplus.webp`, 500×250). **Pendente:** versão em PNG transparente ~200 px de altura |
 | Logo Ingersoll Rand | baixado do site (`logo-ingersoll-rand.png`). **Pendente:** arquivo 400×160 + autorização (item 4) |
-| Banner HERO | **provisório**. Usa `hero-unidade-compressora.jpg`, foto real da oficina da Spinplus (unidade compressora IR com filtros coalescentes Ingersoll Rand), baixada de `uploads/2022/12/unidade-fabrica-scaled.jpg`. É retrato (1920×2560) e foi enquadrada com `object-fit: cover`. **Pendente:** arte 1981×900, de preferência mostrando secador/filtro em operação, já que a foto atual é de unidade compressora |
-| Fotos sem uso | `sala-compressores-ingersoll.webp` (instalação de compressores IR com tubulação, 1173×660) e `tecnico-ingersoll.jpg` (técnico com ferramenta IR, 2560×1707) ficaram no repositório depois que a frase de autoridade foi removida |
+| Banner HERO | `hero-sala-compressores.webp` (1899×828, 83 KB): imagem enviada pelo cliente, render da Ingersoll Rand de uma sala de compressores RS com secador, filtros e reservatório, convertida de PNG (1,8 MB) para WebP. Tem a marca Ingersoll Rand nos equipamentos: **confirmar** o direito de uso junto com a autorização do item 4 |
+| Fotos sem uso | `hero-unidade-compressora.jpg` (unidade compressora IR, antiga foto do HERO), `sala-compressores-ingersoll.webp` (instalação de compressores IR com tubulação, 1173×660) e `tecnico-ingersoll.jpg` (técnico com ferramenta IR, 2560×1707) ficaram no repositório depois que a frase de autoridade foi removida |
 | 22 fotos de produto | baixadas do site da Spinplus, em resoluções variadas (24 KB a 464 KB). **Pendente:** recorte padronizado 800×600 com fundo transparente |
 | Fotos de aplicação/segmento | **ausentes** |
 

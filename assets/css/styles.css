@@ -51,6 +51,19 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
+/* esconde da tela e mantém para leitores de tela (rótulos dos campos do HERO) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--fonte-titulo);
   color: var(--navy);
@@ -179,31 +192,21 @@ section { scroll-margin-top: var(--topo); }
 .menu-toggle svg { width: 26px; height: 26px; fill: currentColor; }
 
 /* ================================================================ HERO == */
-/* HERO dividido: painel claro à esquerda, foto à direita com corte diagonal
-   vermelho, e o card branco de selos sobreposto ao rodapé da seção. */
+/* Foto da sala de compressores no fundo todo, com o lado esquerdo clareado
+   para o texto; à direita, o formulário em card translúcido; e o card branco
+   de selos sobreposto ao rodapé da seção. */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--branco) 0%, var(--branco) 40%, var(--cinza-claro) 100%);
-  padding: 72px 0 0;
+  background: #F5F7FA;
+  padding: clamp(56px, 5vw, 96px) 0 0;
 }
 .hero .container { position: relative; z-index: 2; }
 
-/* A coluna de texto é limitada em vw porque a foto também é medida em vw.
-   Com a foto em 50%, a aresta da diagonal na altura do H1 fica por volta de
-   53,6vw — o limite de 40vw abaixo garante folga em qualquer largura, e os
-   600px comportam "com padrão industrial" em uma linha só. */
-.hero-conteudo { width: min(600px, 40vw); max-width: 100%; }
-
-/* ---- foto + diagonal ---- */
-/* A faixa vermelha nasce da diferença entre os dois clip-path: ambos descem
-   13 pontos percentuais da esquerda, logo as diagonais ficam paralelas. */
+/* ---- foto de fundo ---- */
 .hero-midia {
   position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 50%;
+  inset: 0;
   z-index: 1;
-  background: var(--vermelho);
-  clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
 }
 .hero-midia img {
   position: absolute;
@@ -211,50 +214,138 @@ section { scroll-margin-top: var(--topo); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
-  clip-path: polygon(16% 0, 100% 0, 100% 100%, 3% 100%);
+  object-position: 62% center;
 }
+/* clareia a esquerda para o texto (a foto já vem esmaecida desse lado) */
+.hero-midia::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(245, 247, 250, .97) 0%,
+    rgba(245, 247, 250, .9) 30%,
+    rgba(245, 247, 250, .45) 46%,
+    rgba(245, 247, 250, 0) 62%);
+}
+
+/* ---- texto à esquerda, formulário à direita ---- */
+.hero-grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 21vw, 440px);
+  gap: clamp(32px, 4vw, 80px);
+  align-items: center;
+}
+.hero-conteudo { max-width: 720px; }
 
 /* ---- selo da marca ---- */
 .hero-selo-marca {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-  background: var(--cinza-claro);
-  border: 1px solid var(--cinza-borda);
-  padding: 7px 20px 7px 9px;
+  background: rgba(255, 255, 255, .74);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(20, 41, 74, .08);
+  padding: 7px 22px 7px 10px;
   border-radius: 200px;
-  margin-bottom: 26px;
-  font-size: 12px;
+  margin-bottom: clamp(22px, 1.8vw, 34px);
+  font-size: clamp(11.5px, .8vw, 14px);
   font-family: var(--fonte-titulo);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.1px;
   color: var(--navy);
 }
-.hero-selo-marca img { height: 20px; width: auto; }
+.hero-selo-marca img { height: clamp(20px, 1.4vw, 26px); width: auto; }
 
 /* ---- título ---- */
 .hero h1 {
   color: var(--navy);
-  font-size: clamp(32px, 3.5vw, 52px);
+  font-size: clamp(34px, 3.4vw, 66px);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -1.6px;
+  line-height: 1.04;
+  letter-spacing: -.03em;
+  text-shadow: 0 2px 24px rgba(245, 247, 250, .9); /* halo claro onde encosta na foto */
 }
 .hero h1 em { display: block; font-style: normal; color: var(--vermelho); }
 
 .hero-texto {
-  margin: 24px 0 0;
-  font-size: 17px;
-  line-height: 1.68;
+  margin: clamp(20px, 1.6vw, 30px) 0 0;
+  font-size: clamp(16px, 1.1vw, 20px);
+  line-height: 1.65;
   color: var(--cinza-texto);
-  /* o parágrafo fica mais abaixo, onde a diagonal já avançou para a
-     esquerda — 90% da coluna preserva a folga nessa altura */
-  max-width: 90%;
+  max-width: 620px;
 }
 
-.hero-acoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.hero-acoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(28px, 2.2vw, 40px); }
+.hero-acoes .btn {
+  font-size: clamp(14px, .95vw, 17px);
+  padding: clamp(14px, 1vw, 19px) clamp(28px, 2.1vw, 42px);
+}
+
+/* ---- formulário do topo ---- */
+.hero-form {
+  background: rgba(240, 243, 247, .82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, .75);
+  border-radius: 18px;
+  padding: clamp(24px, 1.8vw, 36px);
+  box-shadow: 0 24px 60px rgba(20, 41, 74, .16);
+}
+.hero-form h2 {
+  font-size: clamp(22px, 1.65vw, 32px);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  margin-bottom: clamp(18px, 1.4vw, 26px);
+}
+.hero-form form { display: grid; gap: clamp(12px, .85vw, 16px); }
+.hero-form input {
+  width: 100%;
+  height: clamp(48px, 3vw, 58px);
+  padding: 0 20px;
+  font-family: var(--fonte-texto);
+  font-size: clamp(15px, .95vw, 17px);
+  color: var(--navy);
+  background: var(--branco);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(20, 41, 74, .05);
+  transition: border-color .2s, box-shadow .2s;
+}
+.hero-form input::placeholder { color: #5F6B7A; }
+.hero-form input:focus {
+  outline: 0;
+  border-color: var(--vermelho);
+  box-shadow: 0 0 0 3px rgba(235, 43, 35, .14);
+}
+.hero-form-whats { position: relative; }
+.hero-form-whats input { padding-right: 56px; }
+.hero-form-whats svg {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  fill: var(--navy);
+  pointer-events: none;
+}
+.hero-form .btn {
+  width: 100%;
+  min-height: clamp(52px, 3.4vw, 66px);
+  margin-top: 4px;
+  font-size: clamp(14.5px, 1vw, 18px);
+}
+.hero-form-nota {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  text-align: center;
+  color: #6B7686;
+}
+.hero-form-nota a { color: var(--vermelho); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---- card branco de selos ---- */
 .hero-selos {
@@ -1210,10 +1301,6 @@ section { scroll-margin-top: var(--topo); }
 
 @media (max-width: 1240px) {
   .vitrine { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  /* a coluna de texto encolhe para o título não encostar na diagonal */
-  .hero-conteudo { width: min(500px, 44vw); }
-  .hero h1 { font-size: clamp(29px, 3.6vw, 42px); letter-spacing: -1.1px; }
-  .hero-texto { font-size: 16px; }
   .hero-selo { padding: 4px 18px; gap: 13px; }
   .hero-selo strong { font-size: 15.5px; }
   .hero-selo span { font-size: 13.5px; }
@@ -1257,27 +1344,21 @@ section { scroll-margin-top: var(--topo); }
   .topbar .container { justify-content: center; min-height: 36px; }
 
   /* HERO empilhado. A foto é irmã do .container, então a ordem do flex
-     coloca o texto e os selos antes dela: título → CTAs → selos → foto. */
+     coloca o resto antes dela: título → CTAs → formulário → selos → foto. */
   .hero { padding: 48px 0 0; display: flex; flex-direction: column; }
   .hero .container { order: 1; }
   .hero-midia { order: 2; }
-  .hero-conteudo { width: 100%; max-width: 100%; } /* anula o limite em vw */
+  .hero-grade { grid-template-columns: 1fr; }
+  .hero-conteudo { max-width: none; }
 
   .hero-midia {
     position: relative;
     width: 100%;
     margin: 38px 0 0;
     height: 280px;
-    clip-path: none;
   }
-  .hero-midia img { clip-path: none; object-position: center 42%; }
-  .hero-midia::after { /* a diagonal vira uma barra vermelha no topo */
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 6px;
-    background: var(--vermelho);
-  }
+  .hero-midia img { object-position: 68% center; }
+  .hero-midia::before { display: none; } /* na faixa a foto aparece inteira */
 
   /* sem sobreposição no empilhado */
   .hero-selos { grid-template-columns: 1fr; margin: 32px 0 0; padding: 10px 6px; transform: none; }
@@ -1364,8 +1445,8 @@ section { scroll-margin-top: var(--topo); }
 .seg-secao,
 .contato { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
 
-/* a foto do HERO encosta no canto direito: recorta junto */
-.hero-midia { overflow: hidden; border-bottom-right-radius: var(--raio-secao); }
+/* a foto de fundo do HERO ocupa a largura toda: recorta junto com os cantos */
+.hero-midia { overflow: hidden; border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
 
 /* ordem de empilhamento: cada seção por cima da seguinte */
 .hero       { z-index: 7; }
@@ -1396,7 +1477,5 @@ section { scroll-margin-top: var(--topo); }
 .contato { border-bottom: 3px solid var(--vermelho); }
 
 @media (max-width: 900px) {
-  /* HERO empilhado: a foto fica embaixo, na largura toda */
-  .hero-midia { border-radius: 0 0 var(--raio-secao) var(--raio-secao); }
   #linhas     { padding-top: calc(54px + var(--raio-secao)); }
 }

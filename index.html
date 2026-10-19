@@ -101,33 +101,67 @@
 
 <!-- ================================================================ HERO -->
 <section class="hero">
-  <!-- Foto real da Spinplus: unidade compressora Ingersoll Rand com filtros
-       coalescentes IR. Substituir pela arte 1981×900 quando o cliente enviar
-       (docs/PENDENCIAS.md, item 7). -->
+  <!-- Imagem enviada pelo cliente: sala de compressores Ingersoll Rand
+       (render do fabricante). Ver docs/PENDENCIAS.md, item 7. -->
   <div class="hero-midia">
-    <img src="assets/img/hero-unidade-compressora.jpg"
-         alt="Unidade compressora Ingersoll Rand com filtros coalescentes na oficina da Spinplus"
-         width="1920" height="2560" fetchpriority="high">
+    <img src="assets/img/hero-sala-compressores.webp"
+         alt="Sala de compressores Ingersoll Rand com secador, filtros e tubulação de ar comprimido"
+         width="1899" height="828" fetchpriority="high">
   </div>
 
-  <div class="container">
-    <div class="hero-conteudo">
-      <span class="hero-selo-marca">
-        <img src="assets/img/logo-ingersoll-rand.png" alt="">
-        Distribuidor autorizado no estado do Rio de Janeiro
-      </span>
+  <div class="container container--largo">
+    <div class="hero-grade">
+      <div class="hero-conteudo">
+        <span class="hero-selo-marca">
+          <img src="assets/img/logo-ingersoll-rand.png" alt="">
+          Distribuidor autorizado no estado do Rio de Janeiro
+        </span>
 
-      <h1>Tratamento de ar comprimido <em>com padrão industrial</em></h1>
+        <h1>Tratamento de ar comprimido <em>com padrão industrial</em></h1>
 
-      <p class="hero-texto">
-        Secadores por refrigeração e por adsorção, filtros coalescentes e drenos
-        Ingersoll Rand para entregar ar seco e limpo na sua linha de produção.
-      </p>
+        <p class="hero-texto">
+          Secadores por refrigeração e por adsorção, filtros coalescentes e drenos
+          Ingersoll Rand para entregar ar seco e limpo na sua linha de produção.
+        </p>
 
-      <div class="hero-acoes">
-        <a class="btn btn--primario" href="#contato">Solicitar orçamento</a>
-        <a class="btn btn--linha" href="#produtos">Ver equipamentos</a>
+        <div class="hero-acoes">
+          <a class="btn btn--primario" href="#contato">Solicitar orçamento</a>
+          <a class="btn btn--linha" href="#produtos">Ver equipamentos</a>
+        </div>
       </div>
+
+      <aside class="hero-form" aria-labelledby="hero-form-titulo">
+        <h2 id="hero-form-titulo">Solicite um orçamento</h2>
+
+        <!--
+          PENDÊNCIA TÉCNICA — como o formulário do Contato, este bloco é só a
+          marcação visual: ao publicar, substituir o <form> pelo shortcode do
+          plugin. Ver docs/PENDENCIAS.md, item 3.
+        -->
+        <form class="js-form-demo" novalidate>
+          <label class="sr-only" for="h-nome">Nome</label>
+          <input type="text" id="h-nome" name="nome" placeholder="Nome" autocomplete="name" required>
+
+          <label class="sr-only" for="h-empresa">Empresa</label>
+          <input type="text" id="h-empresa" name="empresa" placeholder="Empresa" autocomplete="organization" required>
+
+          <label class="sr-only" for="h-email">E-mail</label>
+          <input type="email" id="h-email" name="email" placeholder="E-mail" autocomplete="email" required>
+
+          <div class="hero-form-whats">
+            <label class="sr-only" for="h-whats">WhatsApp</label>
+            <input type="tel" id="h-whats" name="whatsapp" placeholder="WhatsApp" autocomplete="tel" required>
+            <svg aria-hidden="true"><use href="#i-whats"></use></svg>
+          </div>
+
+          <button class="btn btn--primario" type="submit">Solicitar orçamento</button>
+        </form>
+
+        <p class="hero-form-nota">
+          Ao enviar, você aceita nossa
+          <a href="https://spinplus.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.
+        </p>
+      </aside>
     </div>
 
     <div class="hero-selos">
@@ -553,7 +587,7 @@
         substituir o <form> inteiro pelo shortcode informado pelo cliente.
         Ver docs/PENDENCIAS.md, item 3.
       -->
-      <form class="campos" id="form-orcamento" novalidate>
+      <form class="campos js-form-demo" id="form-orcamento" novalidate>
         <div class="campo-duplo">
           <div class="campo">
             <label for="f-nome">Nome</label>
