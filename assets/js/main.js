@@ -91,16 +91,4 @@
   /* ------------------------------------------------ ano do rodapé ------ */
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = String(new Date().getFullYear());
-
-  /* ----------------------------------------------------- formulários --- */
-  /* Placeholder (Contato): ao publicar, o <form> é substituído
-     pelo shortcode do plugin. Enquanto isso, evita o submit vazio e
-     sinaliza a pendência. */
-  document.querySelectorAll('.js-form-demo').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      alert('Formulário de demonstração. Substituir pelo shortcode do plugin antes de publicar (ver docs/PENDENCIAS.md).');
-    });
-  });
 })();

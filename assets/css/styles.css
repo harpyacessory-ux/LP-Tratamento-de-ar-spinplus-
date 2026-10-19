@@ -15,7 +15,7 @@
   --navy-escuro:     #0F1F39;
   --navy-medio:      #2A4570;
 
-  --preto:           #221E1E;   /* do site; hover do botão, menu, segmentos, formulário */
+  --preto:           #221E1E;   /* do site; hover do botão vermelho e ícone do menu */
   --cinza-card:      #F5F5F5;
   --cinza-borda:     #E7E7E7;
   --cinza-texto:     #5A6474;
@@ -1035,83 +1035,10 @@ section { scroll-margin-top: var(--topo); }
 .contato-dados a { transition: color .2s; }
 .contato-dados a:hover { color: var(--vermelho); }
 
-/* ---- formulário ---- */
-.formulario-caixa {
-  background: var(--branco);
-  border: 1px solid #E8EBEF;
-  border-radius: 12px;
-  padding: clamp(24px, 2.3vw, 44px);
-  box-shadow: 0 18px 50px rgba(20, 41, 74, .08);
-  color: var(--cinza-texto);
-}
-.formulario-caixa h3 {
-  font-size: clamp(22px, 1.95vw, 36px);
-  font-weight: 700;
-  letter-spacing: -.03em;
-  margin-bottom: clamp(18px, 1.6vw, 28px);
-}
-
-.campos { display: grid; gap: clamp(16px, 1.4vw, 24px); }
-.campo-duplo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 1.7vw, 28px); }
-.campo label {
-  display: block;
-  font-family: var(--fonte-titulo);
-  font-size: clamp(13.5px, .98vw, 17px);
-  font-weight: 500;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.campo input,
-.campo select,
-.campo textarea {
-  width: 100%;
-  min-height: clamp(44px, 2.9vw, 54px);
-  font-family: var(--fonte-texto);
-  font-size: clamp(15px, 1vw, 17px);
-  color: var(--navy);
-  background: var(--branco);
-  border: 1px solid #D9DEE5;
-  border-radius: 4px;
-  padding: 10px 16px;
-  transition: border-color .2s, box-shadow .2s;
-}
-/* seta própria no select, no lugar da nativa */
-.campo select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding-right: 48px;
-  background: var(--branco) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%2314294A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 16px center / 20px no-repeat;
-  cursor: pointer;
-}
-.campo textarea { resize: vertical; min-height: clamp(84px, 5.6vw, 110px); }
-.campo input::placeholder,
-.campo textarea::placeholder { color: #8A94A3; }
-.campo input:focus,
-.campo select:focus,
-.campo textarea:focus {
-  outline: 0;
-  border-color: var(--vermelho);
-  box-shadow: 0 0 0 3px rgba(235, 43, 35, .13);
-}
-
-.formulario-caixa .btn {
-  width: 100%;
-  margin-top: 6px;
-  min-height: clamp(46px, 3vw, 56px);
-  font-size: clamp(14px, 1vw, 17px);
-  gap: 12px;
-}
-.formulario-caixa .btn svg { width: 1.15em; height: 1.15em; fill: currentColor; transition: transform .25s; }
-.formulario-caixa .btn:hover svg { transform: translateX(3px); }
-
-.formulario-nota {
-  margin: clamp(14px, 1.1vw, 20px) 0 0;
-  font-size: clamp(13px, .9vw, 15.5px);
-  line-height: 1.5;
-  text-align: center;
-  color: #6B7686;
-}
-.formulario-nota a { color: var(--vermelho); text-decoration: underline; text-underline-offset: 3px; }
+/* ---- espaço do formulário ---- */
+/* Reservado para o formulário do plugin (shortcode): a altura mínima, a do
+   card que havia aqui, mantém o desenho da seção enquanto está vazio. */
+.contato-form-slot { min-height: clamp(480px, 40vw, 740px); }
 
 /* =============================================================== RODAPÉ = */
 .rodape {
@@ -1300,6 +1227,7 @@ section { scroll-margin-top: var(--topo); }
   .segmentos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .contato-grade { grid-template-columns: 1fr; gap: 36px; }
+  .contato-form-slot { min-height: 0; } /* vazio, não abre buraco no empilhado */
   .secao { padding: 54px 0; }
 }
 
@@ -1324,10 +1252,8 @@ section { scroll-margin-top: var(--topo); }
   .rodape-grade { grid-template-columns: 1fr; gap: 32px; }
   .rodape-col + .rodape-col { border-left: 0; padding-left: 0; }
   .contato-corpo { padding-left: 0; }
-  .campo-duplo { grid-template-columns: 1fr; }
   .hero-acoes .btn { width: 100%; }
   .topbar-contatos { gap: 14px; justify-content: center; font-size: 12.5px; }
-  .formulario-caixa { padding: 26px 20px; }
   .rodape-base { flex-direction: column; text-align: center; }
 }
 

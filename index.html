@@ -547,64 +547,9 @@
       </div>
     </div>
 
-    <div class="formulario-caixa revelar">
-      <h3>Solicitar orçamento</h3>
-
-      <!--
-        PENDÊNCIA TÉCNICA — o padrão do projeto determina que o formulário seja
-        implantado via shortcode do plugin, e não como formulário HTML próprio.
-        O bloco abaixo é a marcação visual de referência: ao publicar no WordPress,
-        substituir o <form> inteiro pelo shortcode informado pelo cliente.
-        Ver docs/PENDENCIAS.md, item 3.
-      -->
-      <form class="campos js-form-demo" id="form-orcamento" novalidate>
-        <div class="campo-duplo">
-          <div class="campo">
-            <label for="f-nome">Nome</label>
-            <input type="text" id="f-nome" name="nome" autocomplete="name" required>
-          </div>
-          <div class="campo">
-            <label for="f-empresa">Empresa</label>
-            <input type="text" id="f-empresa" name="empresa" autocomplete="organization" required>
-          </div>
-        </div>
-
-        <div class="campo-duplo">
-          <div class="campo">
-            <label for="f-email">E-mail</label>
-            <input type="email" id="f-email" name="email" autocomplete="email" required>
-          </div>
-          <div class="campo">
-            <label for="f-telefone">Telefone</label>
-            <input type="tel" id="f-telefone" name="telefone" autocomplete="tel" required>
-          </div>
-        </div>
-
-        <div class="campo">
-          <label for="f-linha">Equipamento de interesse</label>
-          <select id="f-linha" name="linha">
-            <option value="">Selecione uma família</option>
-            <option>Secador por Refrigeração</option>
-            <option>Secador por Adsorção</option>
-            <option>Filtros Coalescentes</option>
-            <option>Drenos</option>
-            <option>Ainda não sei — preciso de dimensionamento</option>
-          </select>
-        </div>
-
-        <div class="campo">
-          <label for="f-mensagem">Vazão, pressão e aplicação</label>
-          <textarea id="f-mensagem" name="mensagem" placeholder="Ex.: 500 CFM a 7 bar, linha de pintura automotiva"></textarea>
-        </div>
-
-        <button class="btn btn--primario" type="submit">Enviar solicitação <svg aria-hidden="true"><use href="#i-chevron"></use></svg></button>
-      </form>
-
-      <p class="formulario-nota">
-        Ao enviar, você aceita nossa
-        <a href="https://spinplus.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.
-      </p>
-    </div>
+    <!-- Espaço reservado para o formulário do plugin (shortcode).
+         Ver docs/PENDENCIAS.md, item 3. -->
+    <div class="contato-form-slot" id="contato-form"></div>
 
   </div>
 </section>

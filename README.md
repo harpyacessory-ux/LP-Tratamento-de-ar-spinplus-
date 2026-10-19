@@ -34,7 +34,7 @@ docs/
 | 4 | Catálogo | faixa azul-marinho com o total de equipamentos; barra lateral de filtros fixa ao rolar e grade de 22 cards em 3 colunas |
 | 5 | Diferenciais | bloco azul com arcos vermelhos decorativos: título, "20+ anos de experiência" vazado e 5 diferenciais em 3 + 2 com ícones de traço e linhas divisórias; fecha com faixa vermelha |
 | 6 | Segmentos | introdução à esquerda e 8 setores em grade 4 × 2, com ícone em círculo rosado e borda vermelha no hover |
-| 7 | Contato | fundo claro: rótulo e título com barra vermelha vertical, contatos com ícone em círculo rosado e formulário em card branco (placeholder de shortcode) |
+| 7 | Contato | fundo claro: rótulo e título com barra vermelha vertical, contatos com ícone em círculo rosado e espaço reservado à direita para o formulário do plugin |
 | 8 | Rodapé | azul, separado do contato por uma borda curva vermelha: logo em caixa branca, 4 colunas separadas por linhas finas, títulos com traço vermelho |
 
 ## Design system
@@ -52,7 +52,7 @@ site — foi introduzido na direção visual aprovada pelo cliente e substitui o
 | `--navy` | `#14294A` | **direção do cliente** | títulos, topbar, seção de contato |
 | `--navy-escuro` | `#0F1F39` | derivado | rodapé |
 | `--cinza-claro` | `#EEF2F5` | derivado | painel claro do HERO |
-| `--preto` | `#221E1E` | site | hover do botão vermelho, menu mobile, nomes dos segmentos e formulário |
+| `--preto` | `#221E1E` | site | hover do botão vermelho e ícone do menu mobile |
 | `--cinza-card` | `#F5F5F5` | site | corpo do card e seções alternadas |
 | `--cinza-borda` | `#E7E7E7` | site | bordas |
 

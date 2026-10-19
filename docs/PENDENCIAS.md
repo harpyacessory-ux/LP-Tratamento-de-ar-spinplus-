@@ -36,8 +36,8 @@ telefone **(21) 2445-0001 não deve ser presumido como WhatsApp**.
 **Como está no código.** Não há botão de WhatsApp na página. O botão flutuante que
 ligava para o fixo foi retirado: o cliente vai instalar o WhatsApp por plugin.
 
-**Ao instalar o plugin:** conferir se o botão dele não cobre o card de selos do HERO nem
-o botão de enviar do formulário do Contato no celular.
+**Ao instalar o plugin:** conferir no celular se o botão dele não cobre o card de selos do
+HERO nem o botão de enviar dos formulários.
 
 ---
 
@@ -46,16 +46,16 @@ o botão de enviar do formulário do Contato no celular.
 **Situação.** O padrão do projeto proíbe formulário HTML próprio: a captação deve usar o
 shortcode do plugin.
 
-**Como está no código.**
-- **HERO:** o formulário foi retirado. Ficou o espaço vazio `<div class="hero-form-slot"
-  id="hero-form">`, à direita do título, com altura mínima para o desenho não mudar
-  enquanto estiver vazio (no celular a altura mínima é zero, para não abrir buraco).
-- **Contato:** o `<form id="form-orcamento">` continua como marcação visual de
-  referência, com a classe `js-form-demo`; o `main.js` bloqueia o envio e exibe um aviso.
+**Como está no código.** A página não tem nenhum formulário. Os dois que existiam viraram
+espaços vazios reservados ao plugin, com altura mínima para o desenho não mudar
+enquanto estiverem vazios (no celular a altura mínima é zero, para não abrir buraco):
+- **HERO:** `<div class="hero-form-slot" id="hero-form">`, à direita do título.
+- **Contato:** `<div class="contato-form-slot" id="contato-form">`, à direita dos dados
+  de contato.
 
-**Ao publicar:** colocar o shortcode dentro do `.hero-form-slot`; no Contato, substituir
-o `<form>` pelo shortcode e remover o bloco `.js-form-demo` do `main.js`. O shortcode
-ainda **não foi informado**.
+**Ao publicar:** colocar o shortcode dentro de cada espaço. O shortcode ainda **não foi
+informado**. Como o aviso de consentimento ("Ao enviar, você aceita nossa Política de
+privacidade") saiu junto com os formulários, conferir se o plugin exibe esse aviso.
 
 ---
 
@@ -140,7 +140,7 @@ com padding ameniza, mas o recorte padronizado continua pendente.
 
 **Como está no código.** O azul foi aplicado em títulos, topbar, seção de contato e
 rodapé, e desde o redesenho do catálogo também no card de produto. O `#221E1E` ficou
-restrito ao hover do botão vermelho, ao menu mobile, aos nomes dos segmentos e ao formulário.
+restrito ao hover do botão vermelho e ao ícone do menu mobile.
 
 **Risco.** Se esta LP for publicada no mesmo domínio do site atual, a LP e o resto do
 site terão cores escuras diferentes. **Confirmar** se o azul é uma mudança de identidade
