@@ -30,7 +30,7 @@ docs/
 |---|---|---|
 | 1 | Topbar + Header | telefone, e-mail, cobertura RJ, navegação, CTA |
 | 2 | HERO | H1 na expressão `tratamento de ar comprimido`, selo Ingersoll Rand, 3 selos de confiança |
-| 3 | Linhas de produto | 4 famílias com chip, descrição, 3 características e foto |
+| 3 | Linhas de produto | fundo azul-marinho em largura ampliada (até 1720px): introdução à esquerda e grade 2×2 de cards horizontais — foto sobre painel claro, chip, descrição, 3 características |
 | 4 | Vitrine | 22 equipamentos com filtro por família |
 | 5 | Frase de autoridade | "Ar comprimido para sua produtividade" |
 | 6 | Diferenciais | 5 itens |
