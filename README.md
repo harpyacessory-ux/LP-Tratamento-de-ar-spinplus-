@@ -35,8 +35,8 @@ docs/
 | 5 | Frase de autoridade | painel azul com logo em caixa branca, "Ar comprimido para sua produtividade." e botão; foto à direita cortada na diagonal com faixa vermelha |
 | 6 | Diferenciais | bloco azul com arcos vermelhos decorativos: título, "20+ anos de experiência" vazado e 5 diferenciais em 3 + 2 com ícones de traço e linhas divisórias; fecha com faixa vermelha |
 | 7 | Segmentos | introdução à esquerda e 8 setores em grade 4 × 2, com ícone em círculo rosado e borda vermelha no hover |
-| 8 | Contato | dados da empresa + formulário (placeholder de shortcode) |
-| 9 | Rodapé | endereço, mapa do site, soluções, política de privacidade |
+| 8 | Contato | fundo claro: rótulo e título com barra vermelha vertical, contatos com ícone em círculo rosado e formulário em card branco (placeholder de shortcode) |
+| 9 | Rodapé | azul com faixa vermelha no topo: logo em caixa branca, 4 colunas separadas por linhas finas, títulos com traço vermelho |
 
 ## Design system
 
