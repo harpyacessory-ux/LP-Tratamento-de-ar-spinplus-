@@ -32,7 +32,7 @@ docs/
 | 2 | HERO | H1 na expressão `tratamento de ar comprimido`, selo Ingersoll Rand, 3 selos de confiança |
 | 3 | Linhas de produto | fundo azul-marinho em largura ampliada (até 1720px): introdução à esquerda e grade 2×2 de cards horizontais — foto sobre painel claro, chip, descrição, 3 características |
 | 4 | Catálogo | faixa azul-marinho com o total de equipamentos; barra lateral de filtros fixa ao rolar e grade de 22 cards em 3 colunas |
-| 5 | Frase de autoridade | "Ar comprimido para sua produtividade" |
+| 5 | Frase de autoridade | painel azul com logo em caixa branca, "Ar comprimido para sua produtividade." e botão; foto à direita cortada na diagonal com faixa vermelha |
 | 6 | Diferenciais | 5 itens |
 | 7 | Segmentos | 8 setores atendidos |
 | 8 | Contato | dados da empresa + formulário (placeholder de shortcode) |

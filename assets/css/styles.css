@@ -728,23 +728,84 @@ section { scroll-margin-top: var(--topo); }
 }
 
 /* =================================================== FRASE DE AUTORIDADE */
+/* Painel azul à esquerda com logo, frase e botão; foto à direita cortada
+   numa diagonal "/" com faixa vermelha. Mesma técnica dos dois clip-path do
+   HERO: ambos descem 25 pontos percentuais da esquerda, então ficam paralelos
+   e a faixa vermelha aparece na diferença entre eles. */
 .autoridade {
-  background: linear-gradient(100deg, var(--navy) 0%, var(--navy-medio) 55%, var(--vermelho-escuro) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(460px, 40vw, 800px);
+  padding: 80px 0;
   color: var(--branco);
-  padding: 72px 0;
-  text-align: center;
+  background: linear-gradient(120deg, var(--navy-escuro) 0%, var(--navy) 60%, #102347 100%);
 }
-.autoridade p {
+.autoridade::before { /* faixas diagonais translúcidas no painel azul */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0 16%, rgba(255, 255, 255, .035) 16% 27%, transparent 27%),
+    linear-gradient(120deg, transparent 0 44%, rgba(255, 255, 255, .025) 44% 52%, transparent 52%),
+    linear-gradient(120deg, transparent 0 60%, rgba(0, 0, 0, .14) 60% 68%, transparent 68%);
+  pointer-events: none;
+}
+
+.autoridade-midia {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 50%;
+  z-index: 1;
+  background: var(--vermelho);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+.autoridade-midia img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+  clip-path: polygon(27% 0, 100% 0, 100% 100%, 2% 100%);
+}
+
+.autoridade .container { position: relative; z-index: 2; }
+
+/* 50vw: a aresta da diagonal fica entre 50vw (base) e 62,5vw (topo); a frase,
+   em 3,8vw, ocupa ~44vw e o botão fica na metade de baixo, onde há folga */
+.autoridade-conteudo { width: min(900px, 50vw); }
+
+.autoridade-logo {
+  display: inline-block;
+  background: var(--branco);
+  border-radius: 6px;
+  padding: 8px 18px;
+  margin-bottom: clamp(24px, 2.2vw, 40px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .22);
+}
+.autoridade-logo img { height: clamp(52px, 4.6vw, 92px); width: auto; }
+
+.autoridade-frase {
+  margin: 0;
   font-family: var(--fonte-titulo);
-  font-size: clamp(24px, 3.6vw, 40px);
+  font-size: clamp(32px, 3.8vw, 76px);
   font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: -1px;
+  line-height: 1.08;
+  letter-spacing: -2px;
   color: var(--branco);
-  margin: 0 auto;
-  max-width: 860px;
 }
-.autoridade .btn { margin-top: 32px; }
+.autoridade-frase em { display: block; font-style: normal; color: var(--vermelho); }
+
+.autoridade .btn {
+  margin-top: clamp(28px, 2.4vw, 44px);
+  padding: clamp(15px, 1.1vw, 20px) clamp(30px, 2.4vw, 46px);
+  font-size: clamp(14px, 1vw, 17px);
+  gap: 18px;
+}
+.autoridade .btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform .25s; }
+.autoridade .btn:hover svg { transform: translateX(4px); }
 
 /* ========================================================= DIFERENCIAIS = */
 .diferenciais {
@@ -1044,11 +1105,34 @@ section { scroll-margin-top: var(--topo); }
   .vitrine { gap: 10px; }
   .produto-figura { height: 180px; }
 
+  /* frase de autoridade empilhada: texto, depois a foto em faixa */
+  .autoridade { flex-direction: column; align-items: stretch; min-height: 0; padding: 56px 0 0; }
+  .autoridade .container { order: 1; }
+  .autoridade-conteudo { width: 100%; }
+  .autoridade-midia {
+    order: 2;
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin-top: 44px;
+    clip-path: none;
+  }
+  .autoridade-midia img { clip-path: none; object-position: 62% 30%; }
+  .autoridade-midia::after { /* a diagonal vira uma barra vermelha no topo */
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 6px;
+    background: var(--vermelho);
+  }
+
   .contato-grade { grid-template-columns: 1fr; gap: 36px; }
   .secao { padding: 54px 0; }
 }
 
 @media (max-width: 620px) {
+  .autoridade .btn { width: 100%; }
+  .autoridade-logo { padding: 6px 14px; }
   .catalogo-topo-grade { grid-template-columns: 1fr; }
   .catalogo-texto { border-right: 0; padding-right: 0; }
   .catalogo-total { padding-left: 0; flex-direction: row; align-items: baseline; gap: 10px; }

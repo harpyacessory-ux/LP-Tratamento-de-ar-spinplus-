@@ -116,7 +116,7 @@ A versão completa do padrão pede descrição setorial, 3 processos e foto por 
 | Logo Spinplus | baixado do site (`logo-spinplus.webp`, 500×250). **Pendente:** versão em PNG transparente ~200 px de altura |
 | Logo Ingersoll Rand | baixado do site (`logo-ingersoll-rand.png`). **Pendente:** arquivo 400×160 + autorização (item 4) |
 | Banner HERO | **provisório**. Usa `hero-unidade-compressora.jpg`, foto real da oficina da Spinplus (unidade compressora IR com filtros coalescentes Ingersoll Rand), baixada de `uploads/2022/12/unidade-fabrica-scaled.jpg`. É retrato (1920×2560) e foi enquadrada com `object-fit: cover`. **Pendente:** arte 1981×900, de preferência mostrando secador/filtro em operação, já que a foto atual é de unidade compressora |
-| Foto alternativa de HERO | `hero-tecnico-ingersoll.jpg` (técnico com ferramenta IR, 2560×1707, paisagem) está no repositório como segunda opção. Não está em uso |
+| Foto da frase de autoridade | `tecnico-ingersoll.jpg` (técnico com ferramenta IR, 2560×1707), baixada de `uploads/2022/01/maintenance-repair-operation-…jpg` no site da Spinplus. A referência visual aprovada mostra uma sala de compressores com tubulação: **pendente** essa foto, se o cliente tiver |
 | 22 fotos de produto | baixadas do site da Spinplus, em resoluções variadas (24 KB a 464 KB). **Pendente:** recorte padronizado 800×600 com fundo transparente |
 | Fotos de aplicação/segmento | **ausentes** |
 
