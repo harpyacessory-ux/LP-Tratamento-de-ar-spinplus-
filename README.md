@@ -40,16 +40,35 @@ docs/
 
 ## Design system
 
-Os tokens foram extraídos do CSS global do site da Spinplus
-(`wp-content/uploads/elementor/css/post-13986.css`), não escolhidos à mão:
+O vermelho e os cinzas foram extraídos do CSS global do site da Spinplus
+(`wp-content/uploads/elementor/css/post-13986.css`). O azul-marinho **não** vem do
+site — foi introduzido na direção visual aprovada pelo cliente e substitui o
+`#221E1E` nos títulos e nas superfícies escuras.
 
-| Token | Valor | Uso |
-|---|---|---|
-| `--vermelho` | `#EB2B23` | botões, chips, ícones |
-| `--vermelho-escuro` | `#C81710` | hover, gradientes |
-| `--preto` | `#221E1E` | títulos, topbar, seção de contato |
-| `--cinza-card` | `#F5F5F5` | fundo do corpo do card e de seções alternadas |
-| `--cinza-borda` | `#E7E7E7` | bordas |
+| Token | Valor | Origem | Uso |
+|---|---|---|---|
+| `--vermelho` | `#EB2B23` | site | botões, chips, ícones, diagonal do HERO |
+| `--vermelho-escuro` | `#C81710` | site | hover, gradientes |
+| `--vermelho-pale` | `#FDE9E8` | derivado | círculos de ícone do card de selos |
+| `--navy` | `#14294A` | **direção do cliente** | títulos, topbar, seção de contato |
+| `--navy-escuro` | `#0F1F39` | derivado | rodapé |
+| `--cinza-claro` | `#EEF2F5` | derivado | painel claro do HERO |
+| `--preto` | `#221E1E` | site | mantido só no título do card de produto |
+| `--cinza-card` | `#F5F5F5` | site | corpo do card e seções alternadas |
+| `--cinza-borda` | `#E7E7E7` | site | bordas |
+
+### HERO
+
+Layout dividido: painel claro à esquerda com o H1 em azul-marinho e a segunda linha
+em vermelho, foto à direita cortada na diagonal. A faixa vermelha da diagonal nasce da
+diferença entre dois `clip-path` paralelos aplicados ao contêiner e à imagem — ambos
+descem 13 pontos percentuais da esquerda, o que mantém as duas arestas exatamente
+paralelas sem `transform: skew`.
+
+O card branco de selos fica sobreposto ao rodapé da seção (`margin-bottom: -58px`,
+compensado pelo `padding-top` da seção seguinte). Abaixo de 900 px o HERO vira coluna
+única e o `order` do flex coloca a foto depois do texto e dos selos, para o título não
+sair da primeira dobra.
 
 Fontes: **DM Sans** (títulos, botões, cards) e **Roboto** (texto), ambas via Google Fonts.
 
@@ -70,7 +89,7 @@ imagem para 160 px) e 620 px (tudo em coluna única). Respeita
 Esta LP é estática e pode ser servida como está. Para publicar no WordPress da Spinplus,
 resolver antes os itens de [`docs/PENDENCIAS.md`](docs/PENDENCIAS.md) — em especial o
 **formulário via shortcode** (item 3), o **WhatsApp** (item 2) e a **URL canônica**
-(item 8).
+(item 9).
 
 ### GitHub Pages
 

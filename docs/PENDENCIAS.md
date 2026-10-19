@@ -115,7 +115,8 @@ A versão completa do padrão pede descrição setorial, 3 processos e foto por 
 |---|---|
 | Logo Spinplus | baixado do site (`logo-spinplus.webp`, 500×250). **Pendente:** versão em PNG transparente ~200 px de altura |
 | Logo Ingersoll Rand | baixado do site (`logo-ingersoll-rand.png`). **Pendente:** arquivo 400×160 + autorização (item 4) |
-| Banner HERO | **ausente**. O HERO usa gradiente sobre a foto do secador HLA. Pendente: arte 1981×900 |
+| Banner HERO | **provisório**. Usa `hero-unidade-compressora.jpg`, foto real da oficina da Spinplus (unidade compressora IR com filtros coalescentes Ingersoll Rand), baixada de `uploads/2022/12/unidade-fabrica-scaled.jpg`. É retrato (1920×2560) e foi enquadrada com `object-fit: cover`. **Pendente:** arte 1981×900, de preferência mostrando secador/filtro em operação, já que a foto atual é de unidade compressora |
+| Foto alternativa de HERO | `hero-tecnico-ingersoll.jpg` (técnico com ferramenta IR, 2560×1707, paisagem) está no repositório como segunda opção. Não está em uso |
 | 22 fotos de produto | baixadas do site da Spinplus, em resoluções variadas (24 KB a 464 KB). **Pendente:** recorte padronizado 800×600 com fundo transparente |
 | Fotos de aplicação/segmento | **ausentes** |
 
@@ -125,7 +126,23 @@ com padding ameniza, mas o recorte padronizado continua pendente.
 
 ---
 
-## 8. URL final
+## 8. Azul-marinho fora da paleta do site
+
+**Situação.** A direção visual aprovada pelo cliente introduziu o azul-marinho
+`#14294A` como cor escura da identidade. O site institucional da Spinplus usa
+`#221E1E` (preto quente) — o azul **não existe** no CSS global do Elementor.
+
+**Como está no código.** O azul foi aplicado em títulos, topbar, seção de contato e
+rodapé. O `#221E1E` foi mantido apenas no título do card de produto, para o card
+continuar idêntico ao template de loop do site.
+
+**Risco.** Se esta LP for publicada no mesmo domínio do site atual, a LP e o resto do
+site terão cores escuras diferentes. **Confirmar** se o azul é uma mudança de identidade
+que vai ser aplicada ao site todo ou se vale só para esta campanha.
+
+---
+
+## 9. URL final
 
 Não informada. `index.html` usa `rel="canonical"` apontando para `https://spinplus.com.br/`
 como placeholder — **trocar pela URL real antes de indexar**.
