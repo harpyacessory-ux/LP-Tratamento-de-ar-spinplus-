@@ -36,6 +36,10 @@
   <symbol id="i-f-ondas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9.5c1.5-1.7 3-1.7 4.5 0s3 1.7 4.5 0 3-1.7 4.5 0 3 1.7 4.5 0M3 15.5c1.5-1.7 3-1.7 4.5 0s3 1.7 4.5 0 3-1.7 4.5 0 3 1.7 4.5 0"/></symbol>
   <symbol id="i-f-funil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 4.5h17l-6.5 8.2v5.8l-4 2v-7.8z"/></symbol>
   <symbol id="i-f-gota" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.2s-6.2 6.7-6.2 11.1a6.2 6.2 0 0 0 12.4 0C18.2 9.9 12 3.2 12 3.2z"/></symbol>
+  <!-- ícones de traço dos diferenciais -->
+  <symbol id="i-o-relogio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.2 2"/></symbol>
+  <symbol id="i-o-engrenagem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  <symbol id="i-o-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.8v5.6c0 4.6 3.1 8.6 7.5 9.8 4.4-1.2 7.5-5.2 7.5-9.8V5.8z"/><path d="m8.7 12.2 2.3 2.3 4.4-4.5"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
   <symbol id="i-relogio" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6-4.2 2.4-1-1.7L11 11.4V6h2z"/></symbol>
   <symbol id="i-selo" viewBox="0 0 24 24"><path d="m12 1 3 2.6 4-.3.6 4L23 10l-2.4 3.4.6 4-4-.3L12 23l-3.2-2.9-4 .3.6-4L3 13.4 5.4 10l-.6-4 4 .3zm-1.4 14.5 6-6-1.4-1.4-4.6 4.6-2.2-2.2-1.4 1.4z"/></symbol>
@@ -461,61 +465,60 @@
 </section>
 
 <!-- ======================================================== DIFERENCIAIS -->
-<section class="secao" id="diferenciais">
-  <div class="container">
-    <div class="secao-cabecalho revelar">
-      <span class="secao-chip">Por que a Spinplus</span>
-      <h2 class="secao-titulo">Uma empresa que faz <em>só ar comprimido</em></h2>
+<section class="dif-secao" id="diferenciais">
+  <span class="dif-anel" aria-hidden="true"></span>
+
+  <div class="container container--largo dif-grade">
+    <div class="dif-intro revelar">
+      <span class="rotulo-linha">Por que a Spinplus</span>
+      <h2>Uma empresa que<br> faz <em>só ar comprimido</em></h2>
+      <div class="dif-anos"><strong>20+</strong><span>anos de<br>experiência</span></div>
     </div>
 
     <div class="diferenciais">
       <article class="diferencial revelar">
-        <div class="diferencial-icone"><svg><use href="#i-relogio"></use></svg></div>
-        <h3>Experiência consolidada</h3>
-        <p>Mais de 20 anos dedicados a ar comprimido.</p>
+        <span class="diferencial-icone"><svg aria-hidden="true"><use href="#i-o-relogio"></use></svg></span>
+        <div><h3>Experiência consolidada</h3><p>Mais de 20 anos dedicados a ar comprimido.</p></div>
       </article>
       <article class="diferencial revelar">
-        <div class="diferencial-icone"><svg><use href="#i-gota"></use></svg></div>
-        <h3>Atuação especializada</h3>
-        <p>Empresa focada em geração e tratamento de ar.</p>
+        <span class="diferencial-icone"><svg aria-hidden="true"><use href="#i-f-gota"></use></svg></span>
+        <div><h3>Atuação especializada</h3><p>Empresa focada em geração e tratamento de ar.</p></div>
       </article>
       <article class="diferencial revelar">
-        <div class="diferencial-icone"><svg><use href="#i-selo"></use></svg></div>
-        <h3>Distribuição no RJ</h3>
-        <p>Distribuidor Ingersoll Rand no estado.</p>
+        <span class="diferencial-icone"><svg aria-hidden="true"><use href="#i-o-engrenagem"></use></svg></span>
+        <div><h3>Distribuição no RJ</h3><p>Distribuidor Ingersoll Rand no estado.</p></div>
+      </article>
+      <span class="diferenciais-linha" aria-hidden="true"></span>
+      <article class="diferencial revelar">
+        <span class="diferencial-icone"><svg aria-hidden="true"><use href="#i-o-escudo"></use></svg></span>
+        <div><h3>Técnicos certificados</h3><p>Equipe certificada pela Ingersoll Rand.</p></div>
       </article>
       <article class="diferencial revelar">
-        <div class="diferencial-icone"><svg><use href="#i-escudo"></use></svg></div>
-        <h3>Técnicos certificados</h3>
-        <p>Equipe certificada pela Ingersoll Rand.</p>
-      </article>
-      <article class="diferencial revelar">
-        <div class="diferencial-icone"><svg><use href="#i-grade"></use></svg></div>
-        <h3>Portfólio industrial</h3>
-        <p>Secagem por refrigeração, adsorção, filtragem e drenagem.</p>
+        <span class="diferencial-icone"><svg aria-hidden="true"><use href="#i-grade"></use></svg></span>
+        <div><h3>Portfólio industrial</h3><p>Secagem por refrigeração, adsorção, filtragem e drenagem.</p></div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ SEGMENTOS -->
-<section class="secao secao--cinza" id="segmentos">
-  <div class="container">
-    <div class="secao-cabecalho revelar">
-      <span class="secao-chip">Segmentos</span>
-      <h2 class="secao-titulo">Setores que a Spinplus <em>já atende</em></h2>
-      <p class="secao-texto">Indústrias em que a qualidade do ar comprimido é parte do processo, não um detalhe.</p>
+<section class="seg-secao" id="segmentos">
+  <div class="container container--largo seg-grade">
+    <div class="seg-intro revelar">
+      <span class="rotulo-linha">Segmentos</span>
+      <h2>Setores que a Spinplus <em>já atende</em></h2>
+      <p>Indústrias em que a qualidade do ar comprimido é parte do processo, não um detalhe.</p>
     </div>
 
     <div class="segmentos">
-      <div class="segmento revelar"><svg><use href="#i-gota"></use></svg><strong>Petróleo</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-engrenagem"></use></svg><strong>Petroquímica</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-floco"></use></svg><strong>Energia</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-grade"></use></svg><strong>Metalurgia</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-engrenagem"></use></svg><strong>Siderurgia</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-escudo"></use></svg><strong>Farmacêutica</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-filtro"></use></svg><strong>Alimentos</strong></div>
-      <div class="segmento revelar"><svg><use href="#i-selo"></use></svg><strong>Soluções Off Shore</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-gota"></use></svg></span><strong>Petróleo</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-engrenagem"></use></svg></span><strong>Petroquímica</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-floco"></use></svg></span><strong>Energia</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-grade"></use></svg></span><strong>Metalurgia</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-engrenagem"></use></svg></span><strong>Siderurgia</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-escudo"></use></svg></span><strong>Farmacêutica</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-filtro"></use></svg></span><strong>Alimentos</strong></div>
+      <div class="segmento revelar"><span class="segmento-icone"><svg aria-hidden="true"><use href="#i-selo"></use></svg></span><strong>Soluções Off Shore</strong></div>
     </div>
   </div>
 </section>

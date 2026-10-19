@@ -33,8 +33,8 @@ docs/
 | 3 | Linhas de produto | fundo azul-marinho em largura ampliada (até 1720px): introdução à esquerda e grade 2×2 de cards horizontais — foto sobre painel claro, chip, descrição, 3 características |
 | 4 | Catálogo | faixa azul-marinho com o total de equipamentos; barra lateral de filtros fixa ao rolar e grade de 22 cards em 3 colunas |
 | 5 | Frase de autoridade | painel azul com logo em caixa branca, "Ar comprimido para sua produtividade." e botão; foto à direita cortada na diagonal com faixa vermelha |
-| 6 | Diferenciais | 5 itens |
-| 7 | Segmentos | 8 setores atendidos |
+| 6 | Diferenciais | bloco azul com arcos vermelhos decorativos: título, "20+ anos de experiência" vazado e 5 diferenciais em 3 + 2 com ícones de traço e linhas divisórias; fecha com faixa vermelha |
+| 7 | Segmentos | introdução à esquerda e 8 setores em grade 4 × 2, com ícone em círculo rosado e borda vermelha no hover |
 | 8 | Contato | dados da empresa + formulário (placeholder de shortcode) |
 | 9 | Rodapé | endereço, mapa do site, soluções, política de privacidade |
 
