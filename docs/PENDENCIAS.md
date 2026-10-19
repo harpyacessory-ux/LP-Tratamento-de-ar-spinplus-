@@ -28,31 +28,34 @@ chegou a ser montada, mas foi removida por decisão do cliente.
 
 ---
 
-## 2. WhatsApp não confirmado
+## 2. WhatsApp via plugin
 
 **Situação.** O briefing registra que não há número de WhatsApp confirmado e que o
 telefone **(21) 2445-0001 não deve ser presumido como WhatsApp**.
 
-**Como está no código.** O botão flutuante (`index.html`, final do arquivo) liga para o
-fixo via `tel:`. O ícone `#i-whats` já está no sprite SVG, pronto para uso.
+**Como está no código.** Não há botão de WhatsApp na página. O botão flutuante que
+ligava para o fixo foi retirado: o cliente vai instalar o WhatsApp por plugin.
 
-**Ao receber o número:** trocar o `href` por `https://wa.me/55DDDNUMERO` e o `<use>` por
-`#i-whats`. Ajustar a cor do botão para `#25D366` se o padrão do projeto pedir.
+**Ao instalar o plugin:** conferir se o botão dele não cobre o card de selos do HERO nem
+o botão de enviar do formulário do Contato no celular.
 
 ---
 
-## 3. Formulário deve virar shortcode
+## 3. Formulários via shortcode
 
 **Situação.** O padrão do projeto proíbe formulário HTML próprio: a captação deve usar o
 shortcode do plugin.
 
-**Como está no código.** São dois formulários de marcação visual em `index.html`: o do
-HERO ("Solicite um orçamento") e o do Contato (`id="form-orcamento"`). Os dois têm a
-classe `js-form-demo`; o `main.js` bloqueia o envio e exibe um aviso.
+**Como está no código.**
+- **HERO:** o formulário foi retirado. Ficou o espaço vazio `<div class="hero-form-slot"
+  id="hero-form">`, à direita do título, com altura mínima para o desenho não mudar
+  enquanto estiver vazio (no celular a altura mínima é zero, para não abrir buraco).
+- **Contato:** o `<form id="form-orcamento">` continua como marcação visual de
+  referência, com a classe `js-form-demo`; o `main.js` bloqueia o envio e exibe um aviso.
 
-**Ao publicar:** substituir cada `<form>` pelo shortcode e remover o bloco
-`.js-form-demo` do `main.js`. O shortcode ainda **não foi informado**. Confirmar também se
-o plugin aceita o campo WhatsApp do formulário do HERO.
+**Ao publicar:** colocar o shortcode dentro do `.hero-form-slot`; no Contato, substituir
+o `<form>` pelo shortcode e remover o bloco `.js-form-demo` do `main.js`. O shortcode
+ainda **não foi informado**.
 
 ---
 

@@ -51,19 +51,6 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
-/* esconde da tela e mantém para leitores de tela (rótulos dos campos do HERO) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 h1, h2, h3, h4 {
   font-family: var(--fonte-titulo);
   color: var(--navy);
@@ -284,68 +271,10 @@ section { scroll-margin-top: var(--topo); }
   padding: clamp(14px, 1vw, 19px) clamp(28px, 2.1vw, 42px);
 }
 
-/* ---- formulário do topo ---- */
-.hero-form {
-  background: rgba(240, 243, 247, .82);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, .75);
-  border-radius: 18px;
-  padding: clamp(24px, 1.8vw, 36px);
-  box-shadow: 0 24px 60px rgba(20, 41, 74, .16);
-}
-.hero-form h2 {
-  font-size: clamp(22px, 1.65vw, 32px);
-  font-weight: 700;
-  letter-spacing: -.03em;
-  margin-bottom: clamp(18px, 1.4vw, 26px);
-}
-.hero-form form { display: grid; gap: clamp(12px, .85vw, 16px); }
-.hero-form input {
-  width: 100%;
-  height: clamp(48px, 3vw, 58px);
-  padding: 0 20px;
-  font-family: var(--fonte-texto);
-  font-size: clamp(15px, .95vw, 17px);
-  color: var(--navy);
-  background: var(--branco);
-  border: 1px solid transparent;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(20, 41, 74, .05);
-  transition: border-color .2s, box-shadow .2s;
-}
-.hero-form input::placeholder { color: #5F6B7A; }
-.hero-form input:focus {
-  outline: 0;
-  border-color: var(--vermelho);
-  box-shadow: 0 0 0 3px rgba(235, 43, 35, .14);
-}
-.hero-form-whats { position: relative; }
-.hero-form-whats input { padding-right: 56px; }
-.hero-form-whats svg {
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 26px;
-  height: 26px;
-  fill: var(--navy);
-  pointer-events: none;
-}
-.hero-form .btn {
-  width: 100%;
-  min-height: clamp(52px, 3.4vw, 66px);
-  margin-top: 4px;
-  font-size: clamp(14.5px, 1vw, 18px);
-}
-.hero-form-nota {
-  margin: 12px 0 0;
-  font-size: 12.5px;
-  line-height: 1.45;
-  text-align: center;
-  color: #6B7686;
-}
-.hero-form-nota a { color: var(--vermelho); text-decoration: underline; text-underline-offset: 2px; }
+/* ---- espaço do formulário ---- */
+/* Reservado para o formulário do plugin (shortcode): a altura mínima mantém
+   o desenho do HERO enquanto o espaço está vazio. */
+.hero-form-slot { min-height: clamp(420px, 28vw, 540px); }
 
 /* ---- card branco de selos ---- */
 .hero-selos {
@@ -1258,26 +1187,6 @@ section { scroll-margin-top: var(--topo); }
   flex-wrap: wrap;
 }
 
-/* ====================================================== BOTÃO FLUTUANTE = */
-.flutuante {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 80;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--vermelho);
-  color: var(--branco);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 22px rgba(235, 43, 35, .42);
-  transition: transform .25s, background-color .25s;
-}
-.flutuante:hover { transform: scale(1.08); background: var(--vermelho-escuro); }
-.flutuante svg { width: 26px; height: 26px; fill: currentColor; }
-
 /* ============================================================ RESPONSIVO = */
 @media (max-width: 1440px) {
   /* diferenciais e segmentos: a introdução sobe e o conteúdo ocupa a largura */
@@ -1349,6 +1258,7 @@ section { scroll-margin-top: var(--topo); }
   .hero .container { order: 1; }
   .hero-midia { order: 2; }
   .hero-grade { grid-template-columns: 1fr; }
+  .hero-form-slot { min-height: 0; } /* vazio, não abre buraco no empilhado */
   .hero-conteudo { max-width: none; }
 
   .hero-midia {

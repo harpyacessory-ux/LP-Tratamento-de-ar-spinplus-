@@ -56,7 +56,6 @@
   <symbol id="i-filtro" viewBox="0 0 24 24"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zm7 0h3.8v1.7h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.06V21h-4v-5.5c0-1.3-.03-3-1.8-3-1.8 0-2.08 1.4-2.08 2.9V21h-4z"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.25.15 4.77 1.7 4.92 4.92.06 1.28.07 1.67.07 4.9s-.01 3.6-.07 4.9c-.15 3.2-1.66 4.76-4.92 4.9-1.3.07-1.68.08-4.9.08s-3.6 0-4.9-.07c-3.26-.15-4.77-1.7-4.92-4.91C2.14 15.68 2.13 15.3 2.13 12s0-3.6.07-4.9C2.35 3.9 3.86 2.35 7.12 2.2 8.4 2.14 8.8 2.13 12 2.13zm0 3.08a6.72 6.72 0 1 0 0 13.44 6.72 6.72 0 0 0 0-13.44zm0 11.08a4.36 4.36 0 1 1 0-8.72 4.36 4.36 0 0 1 0 8.72zm6.98-11.34a1.57 1.57 0 1 0 0 3.14 1.57 1.57 0 0 0 0-3.14z"/></symbol>
-  <symbol id="i-whats" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.67-2.07c-.17-.3 0-.46.13-.6.14-.14.3-.36.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.48 1.7.62.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 2a9.9 9.9 0 0 0-8.5 15.02L2 22.5l5.6-1.47A9.9 9.9 0 1 0 12.05 2zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.1.81.83-3.03-.2-.31a8.2 8.2 0 1 1 6.95 3.85z"/></symbol>
 </svg>
 
 <!-- ============================================================== TOPBAR -->
@@ -130,38 +129,9 @@
         </div>
       </div>
 
-      <aside class="hero-form" aria-labelledby="hero-form-titulo">
-        <h2 id="hero-form-titulo">Solicite um orçamento</h2>
-
-        <!--
-          PENDÊNCIA TÉCNICA — como o formulário do Contato, este bloco é só a
-          marcação visual: ao publicar, substituir o <form> pelo shortcode do
-          plugin. Ver docs/PENDENCIAS.md, item 3.
-        -->
-        <form class="js-form-demo" novalidate>
-          <label class="sr-only" for="h-nome">Nome</label>
-          <input type="text" id="h-nome" name="nome" placeholder="Nome" autocomplete="name" required>
-
-          <label class="sr-only" for="h-empresa">Empresa</label>
-          <input type="text" id="h-empresa" name="empresa" placeholder="Empresa" autocomplete="organization" required>
-
-          <label class="sr-only" for="h-email">E-mail</label>
-          <input type="email" id="h-email" name="email" placeholder="E-mail" autocomplete="email" required>
-
-          <div class="hero-form-whats">
-            <label class="sr-only" for="h-whats">WhatsApp</label>
-            <input type="tel" id="h-whats" name="whatsapp" placeholder="WhatsApp" autocomplete="tel" required>
-            <svg aria-hidden="true"><use href="#i-whats"></use></svg>
-          </div>
-
-          <button class="btn btn--primario" type="submit">Solicitar orçamento</button>
-        </form>
-
-        <p class="hero-form-nota">
-          Ao enviar, você aceita nossa
-          <a href="https://spinplus.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.
-        </p>
-      </aside>
+      <!-- Espaço reservado para o formulário do plugin (shortcode).
+           Ver docs/PENDENCIAS.md, item 3. -->
+      <div class="hero-form-slot" id="hero-form"></div>
     </div>
 
     <div class="hero-selos">
@@ -693,17 +663,6 @@
     </div>
   </div>
 </footer>
-
-<!--
-  PENDÊNCIA — o briefing registra que não há número de WhatsApp confirmado.
-  O telefone (21) 2445-0001 não deve ser presumido como WhatsApp, por isso
-  o botão flutuante abaixo liga para o fixo. Ao receber o número oficial,
-  trocar por https://wa.me/55DDDNUMERO e o ícone por #i-whats.
-  Ver docs/PENDENCIAS.md, item 2.
--->
-<a class="flutuante" href="tel:+552124450001" aria-label="Ligar para a Spinplus">
-  <svg><use href="#i-tel"></use></svg>
-</a>
 
 <script src="assets/js/main.js" defer></script>
 </body>

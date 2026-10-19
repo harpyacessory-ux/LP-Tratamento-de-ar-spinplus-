@@ -93,7 +93,7 @@
   if (ano) ano.textContent = String(new Date().getFullYear());
 
   /* ----------------------------------------------------- formulários --- */
-  /* Placeholders (HERO e Contato): ao publicar, cada <form> é substituído
+  /* Placeholder (Contato): ao publicar, o <form> é substituído
      pelo shortcode do plugin. Enquanto isso, evita o submit vazio e
      sinaliza a pendência. */
   document.querySelectorAll('.js-form-demo').forEach(function (form) {
